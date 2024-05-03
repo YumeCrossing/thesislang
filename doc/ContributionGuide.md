@@ -7,12 +7,15 @@
 In the `master` branch:
 
 - Choose `C++` as the main language for development.
+- Choose `Shell` as the language for build scripts. (currently in use but it is possible to be changed in the future)
 
 ### Code Styles
 
 For `C++`:
 
-- The pair of `{` and `}` shall be in one line, except the outermost block of a *lambda-expression*.
+- The `{` and `}` shall be in one line by itself, except the following cases:
+  - As the outermost block of a *lambda-expression*.
+  - For the empty *function-body*.
 - Except macro names, identifiers of public API shall be in `PascalCase` for classes and `camelCase` for variables/functions.
 
 ## Document
