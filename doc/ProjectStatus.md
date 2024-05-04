@@ -1,10 +1,15 @@
 # Project Status
 
+The contents in this document are available in:
+
+- **English**
+- [简体中文](./ProjectStatus.zh-CN.md)
+
 ## Current Stage
 
 The project is completely in the `Alpha` stage.
 
-**Note**: The stage list is:
+**Note**: The stage is listed here:
 
 - The 2 early development stage:
   - `Alpha` from `0.1.0` to `0.6.x`
