@@ -531,7 +531,7 @@ template <typename Char> class basic_string_view {
   constexpr auto  at(size_t pos) const -> const Char& {
     if (pos >= size_) {
       std::string str;
-      sprintf(str.data(), "basic_string_view::at: __pos "
+      sprintf(str.data(), "basic_string_view::at: pos "
 				       "(which is %zu) >= this->size() "
 				       "(which is %zu)", pos, size_);
       throw std::out_of_range(str);
