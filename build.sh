@@ -1,6 +1,24 @@
 SOURCES="src/main.cpp src/CLI.cpp"
-# Only for Windows at now
-EXECUTABLE="thesis.exe"
+
+# Only being tested on Windows.
+UNAME=`uname -s`
+KERNEL=${UNAME: 0: 5}
+
+if [ "$KERNEL" == "Linux" ]; then
+    EXECUTABLE="thesis"
+elif [ "$KERNEL" == "Darwin" ]; then
+    EXECUTABLE="thesis"
+elif [ "$KERNEL" == "MINGW" ]; then
+    EXECUTABLE="thesis.exe"
+else
+    echo "Unsupported target: ${$uname -s}"
+    exit -1
+fi
+
+# Passed in command-line parameters.
+TARGET_NAME="\"thesis\""
+
+# Reserved for future `--profile` extension.
 PROFILE="debug"
 
 if ! [ -e "target" ]; then
@@ -14,4 +32,4 @@ fi
 mkdir "target/$PROFILE"
 
 # Build by GCC
-g++ $SOURCES -I inc/ -I 3rdparty/fmt/include/ -o "target/$PROFILE/$EXECUTABLE"
+g++ $SOURCES -I inc/ -I 3rdparty/fmt/include/ -DTARGET_NAME=${TARGET_NAME} -o "target/$PROFILE/$EXECUTABLE"

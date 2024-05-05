@@ -15,15 +15,16 @@
 namespace thesis
 {
 
-constexpr auto app_title(APP_NAME " " APP_VERSION " @(" __DATE__ ", " __TIME__ ") " APP_BUILD_BY);
+// TODO: `__DATE__` has two blanks between the month and the day but expected to be one.
+constexpr auto app_title(APP_NAME " " APP_VERSION " @(" __DATE__ ", " __TIME__ ") " APP_BUILT_BY);
 
 class Option final
 {
 private:
-    const char* name;
-    const char* abbr;
-    const char* opt;
-    const char* details;
+    const char* name; // The parameter name
+    const char* abbr; // The abbreviated parameter name
+    const char* opt; // The optional args
+    const char* details; // The detailed information
 
 public:
     Option(const char* name, const char* abbr, const char* opt, const char* details) noexcept:
@@ -49,10 +50,10 @@ public:
     using Args = std::vector<string_view>;
 
 private:
-    Args args;
-    std::vector<Option> opts;
-    REPL loop;
-    const char* executable_path;
+    Args args; // The parsed `argv`
+    std::vector<Option> opts; // The options
+    REPL loop; // The read-eval-print-loop
+    const char* executable_path; // The executable file path
 
 public:
     CLI(std::initializer_list<Option> opts, REPL loop) noexcept: opts(opts), loop(loop), args {} {}

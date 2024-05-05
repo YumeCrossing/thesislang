@@ -26,17 +26,18 @@ void REPL::run()
 {
     println("{}", app_title);
     println("Type \"exit\" to exit.");
+    // The interactive mode
     while (input() && line != "exit");
     exit(0);
 }
 
 void CLI::parse(int argc, const char** argv) noexcept
 {
-    // The program path
+    // The executable file path
     executable_path = argv[0];
     argc--;
 
-    // argv -> args
+    // Convert `const char**` to `std::vector<string_view>`.
     for (int i = 0;argc > 0;argc--,i++)
         args.push_back({argv[i+1]});
 }
